@@ -17,9 +17,12 @@ export default function ServiceCard({ service }) {
           </li>
         ))}
       </ul>
-      <button className="mt-6 text-blue-600 font-medium hover:text-blue-800 transition-colors">
+      <a href='/Book'>
+        <button  className="mt-6 text-blue-600 font-medium hover:text-blue-800 transition-colors">
         View all {service.name} issues →
       </button>
+      </a>
+      
     </div>
   );
 }
