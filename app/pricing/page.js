@@ -18,7 +18,7 @@ const PricingPage = () => {
           {/* Basic Package */}
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <h3 className="text-xl font-bold text-gray-800 mb-4">Basic Package</h3>
-            <div className="text-3xl font-bold text-gray-800 mb-4">$200</div>
+            <div className="text-3xl font-bold text-gray-800 mb-4">₹150</div>
             <ul className="space-y-3 mb-6">
               <li className="flex items-center">
                 <span className="text-green-500 mr-2">✓</span>
@@ -47,7 +47,7 @@ const PricingPage = () => {
               MOST POPULAR
             </div>
             <h3 className="text-xl font-bold text-gray-800 mb-4">Premium Package</h3>
-            <div className="text-3xl font-bold text-gray-800 mb-4">$350</div>
+            <div className="text-3xl font-bold text-gray-800 mb-4">₹350</div>
             <ul className="space-y-3 mb-6">
               <li className="flex items-center">
                 <span className="text-green-500 mr-2">✓</span>
@@ -55,7 +55,7 @@ const PricingPage = () => {
               </li>
               <li className="flex items-center">
                 <span className="text-green-500 mr-2">✓</span>
-                <span>Premium parts included</span>
+                <span> parts included</span>
               </li>
               <li className="flex items-center">
                 <span className="text-green-500 mr-2">✓</span>
@@ -77,15 +77,15 @@ const PricingPage = () => {
           {/* Elite Package */}
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <h3 className="text-xl font-bold text-gray-800 mb-4">Elite Package</h3>
-            <div className="text-3xl font-bold text-gray-800 mb-4">$500</div>
+            <div className="text-3xl font-bold text-gray-800 mb-4">₹450</div>
             <ul className="space-y-3 mb-6">
               <li className="flex items-center">
                 <span className="text-green-500 mr-2">✓</span>
-                <span>Unlimited repairs for 6 months</span>
+                <span>3 repair services</span>
               </li>
               <li className="flex items-center">
                 <span className="text-green-500 mr-2">✓</span>
-                <span>Premium/OEM parts included</span>
+                <span>parts included</span>
               </li>
               <li className="flex items-center">
                 <span className="text-green-500 mr-2">✓</span>
@@ -97,7 +97,7 @@ const PricingPage = () => {
               </li>
               <li className="flex items-center">
                 <span className="text-green-500 mr-2">✓</span>
-                <span>Free annual maintenance</span>
+                <span>1 Free annual maintenance</span>
               </li>
             </ul>
             <Link 
@@ -147,23 +147,23 @@ const PricingPage = () => {
             <tbody>
               <tr className="border-b border-gray-200">
                 <td className="p-3">Smartphone Screen Replacement</td>
-                <td className="p-3">$99-$199</td>
-                <td className="p-3">$149-$299</td>
+                <td className="p-3">₹99-₹199</td>
+                <td className="p-3">₹149-₹299</td>
               </tr>
               <tr className="border-b border-gray-200">
                 <td className="p-3">Laptop Keyboard Repair</td>
-                <td className="p-3">$79-$149</td>
-                <td className="p-3">$129-$199</td>
+                <td className="p-3">₹79-₹149</td>
+                <td className="p-3">₹129-₹199</td>
               </tr>
               <tr className="border-b border-gray-200">
                 <td className="p-3">AC Unit Repair</td>
-                <td className="p-3">$129-$249</td>
-                <td className="p-3">$199-$349</td>
+                <td className="p-3">₹129-₹249</td>
+                <td className="p-3">₹199-₹349</td>
               </tr>
               <tr className="border-b border-gray-200">
                 <td className="p-3">Washing Machine Repair</td>
-                <td className="p-3">$89-$179</td>
-                <td className="p-3">$139-$229</td>
+                <td className="p-3">₹89-₹179</td>
+                <td className="p-3">₹139-₹229</td>
               </tr>
             </tbody>
           </table>

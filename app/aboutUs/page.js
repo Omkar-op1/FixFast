@@ -41,7 +41,7 @@ const AboutPage = () => {
           <div className="bg-white rounded-lg shadow-md p-8">
             <p className="text-lg text-gray-600 leading-relaxed">
               FixFast was founded with a simple mission: to make appliance and electronics repairs as convenient as ordering food delivery. 
-              Since our launch in 2020, we've grown to become the most trusted on-demand repair service, completing over 10,000 repairs 
+              Since our launch in 2025, we've grown to become the most trusted on-demand repair service, completing over 10,000 repairs 
               with a 98% success rate and maintaining a 4.9 customer rating.
             </p>
           </div>
