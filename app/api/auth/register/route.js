@@ -80,9 +80,9 @@ export async function POST(req) {
       password: hashedPassword,
       phone,
       role: userType,
-      address: null,
-      lat: null,
-      lng: null,
+      address: "",
+      lat: 0.0,
+      lng: 0.0,
       rating: userType === 'technician' ? 0 : null
     };
 

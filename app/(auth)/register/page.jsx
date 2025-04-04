@@ -47,8 +47,8 @@ export default function RegisterPage() {
         body: JSON.stringify({
           email: formData.email,
           password: formData.password,
-          firstName: formData.firstName,
-          lastName: formData.lastName,
+          firstname: formData.firstName,
+          lastname: formData.lastName,
           phone: formData.phone,
           userType: 'customer'
         })
