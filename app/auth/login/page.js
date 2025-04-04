@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 
-export default function LoginForm({ onSuccess, onRegister, onForgotPassword }) {
+export default function Login({ onSuccess, onRegister, onForgotPassword }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
