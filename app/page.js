@@ -88,9 +88,11 @@ export default function Home() {
             On-demand repair services for all your electronics and appliances with a 90-day warranty
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href='/Book'>
             <button className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg">
               Book a Technician Now
             </button>
+            </a>
             <button className="bg-white text-blue-700 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
               How It Works <ChevronRight className="w-5 h-5" />
             </button>

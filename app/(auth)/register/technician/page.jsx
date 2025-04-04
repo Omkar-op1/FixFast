@@ -13,7 +13,6 @@ export default function TechnicianRegisterPage() {
     confirmPassword: '',
     experience: '',
     skills: [],
-    hourlyRate: ''
   });
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -72,7 +71,7 @@ export default function TechnicianRegisterPage() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/technicians/register', {
+      const response = await fetch('/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -80,13 +79,10 @@ export default function TechnicianRegisterPage() {
         body: JSON.stringify({
           email: formData.email,
           password: formData.password,
-          firstName: formData.firstName,
-          lastName: formData.lastName,
+          firstname: formData.firstName,
+          lastname: formData.lastName,
           phone: formData.phone,
           userType: 'technician',
-          experience: parseInt(formData.experience),
-          skills: formData.skills,
-          hourlyRate: parseFloat(formData.hourlyRate)
         })
       });
 
@@ -235,32 +231,6 @@ export default function TechnicianRegisterPage() {
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
-
-            <div>
-              <label htmlFor="hourlyRate" className="block text-sm font-medium text-gray-700">
-                Hourly rate (₹) *
-              </label>
-              <div className="mt-1 relative rounded-md shadow-sm">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <span className="text-gray-500 sm:text-sm">₹</span>
-                </div>
-                <input
-                  id="hourlyRate"
-                  name="hourlyRate"
-                  type="number"
-                  min="0"
-                  step="50"
-                  required
-                  value={formData.hourlyRate}
-                  onChange={handleChange}
-                  className="block w-full pl-7 pr-12 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                  placeholder="0.00"
-                />
-                <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                  <span className="text-gray-500 sm:text-sm">/hr</span>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div className="border-t border-gray-200 pt-4">
@@ -393,3 +363,8 @@ export default function TechnicianRegisterPage() {
     </div>
   );
 }
+
+
+
+
+
