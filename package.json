@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@prisma/client": "^6.5.0",
+    "@react-google-maps/api": "^2.20.6",
     "bcryptjs": "^3.0.2",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.487.0",
@@ -25,8 +26,6 @@
     "tailwindcss": "^4"
   },
   "prisma": {
-  "seed": "node prisma/seed.js"
-}
-
-
+    "seed": "node prisma/seed.js"
+  }
 }

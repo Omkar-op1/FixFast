@@ -28,7 +28,13 @@ export default function LoginPage() {
           ? 'Invalid email or password' 
           : result.error);
       } else {
-        router.replace('/dashboard');
+        if(email==='tech@gmail.com')
+        {
+           router.replace('/tech');
+        }else{
+           router.replace('/');
+        }
+       
       }
     } catch (err) {
       setError('An unexpected error occurred. Please try again.');

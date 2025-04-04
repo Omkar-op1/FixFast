@@ -2,6 +2,8 @@
 
 import { Smartphone, Laptop, Tablet, Watch, AirVent, Tv, Camera, Gamepad2, Headphones, Printer, Check, ChevronRight, Zap, Clock, ShieldCheck, Star, Wand2 } from 'lucide-react';
 import { useState } from 'react';
+import Link from 'next/link'; // Added missing import
+
 
 export default function BookingPage() {
   const [step, setStep] = useState(1);
@@ -11,6 +13,7 @@ export default function BookingPage() {
   const [useAIDiagnosis, setUseAIDiagnosis] = useState(false);
   const [promoCode, setPromoCode] = useState('');
   const [appliedPromo, setAppliedPromo] = useState(false);
+  const [bookingId, setBookingId] = useState(false);
   const [bookingDetails, setBookingDetails] = useState({
     name: '',
     email: '',
@@ -18,7 +21,7 @@ export default function BookingPage() {
     address: '',
     preferredTime: 'ASAP',
   });
-
+let resul;
   const devices = [
     { name: 'Smartphone', icon: <Smartphone className="w-6 h-6" /> },
     { name: 'Laptop', icon: <Laptop className="w-6 h-6" /> },
@@ -30,6 +33,7 @@ export default function BookingPage() {
     { name: 'Gaming Console', icon: <Gamepad2 className="w-6 h-6" /> },
     { name: 'Headphones', icon: <Headphones className="w-6 h-6" /> },
     { name: 'Printer', icon: <Printer className="w-6 h-6" /> },
+
   ];
 
   const commonIssues = {
@@ -44,8 +48,9 @@ export default function BookingPage() {
     { code: 'QUICK10', discount: 10, description: '10% off for urgent repairs' },
   ];
 
-  const basePrice = 499;
+  const basePrice = 100;
   const [finalPrice, setFinalPrice] = useState(basePrice);
+  const [bookingResult, setBookingResult] = useState(null); // Changed from bookingId to bookingResult
 
   const handleDeviceSelect = (device) => {
     setSelectedDevice(device);
@@ -65,18 +70,35 @@ export default function BookingPage() {
     }
   };
 
-  const handleBookingSubmit = (e) => {
+  const handleBookingSubmit = async (e) => {
     e.preventDefault();
-    console.log({
+    
+    const bookingData = {
       device: selectedDevice,
-      issue: issueType,
-      description: userDescription,
-      useAIDiagnosis,
+      issue: issueType || userDescription,
       promoCode: appliedPromo ? promoCode : null,
       finalPrice,
-      customerDetails: bookingDetails
-    });
-    setStep(5);
+      customerDetails: bookingDetails,
+    };
+  
+    try {
+      const response = await fetch('/api/Book-repair', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(bookingData),
+      });
+  
+      const result = await response.json();
+      setBookingResult(result); // Store the entire result
+      console.log(resul)
+      if (response.ok) {
+        console.log('Booking successful:', result);
+        // setBookingId(result.bookingId); // Store the booking ID from API response
+        setStep(5); // Move to success step
+      }
+    } catch (error) {
+      console.error('Error submitting booking:', error);
+    }
   };
 
   return (
@@ -407,26 +429,30 @@ export default function BookingPage() {
           </div>
         )}
 
-        {/* Step 5: Booking Confirmed */}
-        {step === 5 && (
-          <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-8 text-center">
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Check className="w-10 h-10 text-green-600" />
-            </div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-3">Booking Confirmed!</h2>
-            <p className="text-gray-600 mb-6">
-              Your technician will arrive within 10 minutes. We've sent the details to {bookingDetails.email}.
-            </p>
-            <div className="bg-blue-50 p-4 rounded-lg mb-6">
-              <p className="font-medium">Booking Reference: FX-{Math.floor(100000 + Math.random() * 900000)}</p>
-            </div>
-            <button className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium">
-              Track Technician
-            </button>
-          </div>
-        )}
 
-        {/* Features Section */}
+{step === 5 && (
+    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-8 text-center">
+      <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+        <Check className="w-10 h-10 text-green-600" />
+      </div>
+      <h2 className="text-2xl font-bold text-gray-800 mb-3">Booking Confirmed!</h2>
+      <p className="text-gray-600 mb-6">
+        Your technician will arrive within 10 minutes. We've sent the details to {bookingDetails.email}.
+      </p>
+      {bookingResult?.bookingId && (
+        <div className="bg-blue-50 p-4 rounded-lg mb-6">
+          <p className="font-medium">Booking Reference: {bookingResult.bookingId}</p>
+        </div>
+      )}
+      {bookingResult?.bookingId && (
+        <Link href={`/orders/${bookingResult.bookingId}`} className="block">
+          <button className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium">
+            Track Order
+          </button>
+        </Link>
+      )}
+    </div>
+  )}    {/* Features Section */}
         {step !== 5 && (
           <div className="max-w-4xl mx-auto mt-12 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100 flex items-start">

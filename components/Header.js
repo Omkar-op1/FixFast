@@ -3,8 +3,10 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
+import { useSession, signOut } from 'next-auth/react';
 
 export default function Header() {
+  const { data: session } = useSession();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Common navigation links component
@@ -42,12 +44,27 @@ export default function Header() {
 
         {/* Desktop Auth Buttons */}
         <div className="hidden md:flex space-x-4">
-          <Link
-            href="/auth/login"
-            className="bg-blue-600 hover:bg-blue-800 text-white font-medium py-2 px-4 rounded-md transition-colors"
-          >
-            Login
-          </Link>
+          {session ? (
+            <div className="flex items-center space-x-4">
+              <span className="font-medium text-gray-700">
+                {session.user?.name}
+              </span>
+              <button
+                onClick={() => signOut()}
+                className="bg-red-500 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link
+              href="/login"
+              className="bg-blue-600 hover:bg-blue-800 text-white font-medium py-2 px-4 rounded-md"
+            >
+              Login
+            </Link>
+          )}
+
           <Link
             href="/booking"
             className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
@@ -72,13 +89,14 @@ export default function Header() {
           <nav className="flex flex-col space-y-4">
             <NavLinks mobile />
             <div className="pt-4 border-t">
+              {/* Fixed Mobile Login Link */}
               <Link
                 href="/auth/login"
                 className="block mb-4 font-medium hover:text-blue-600"
-                onClick={() => setMobileMenuOpen(false)}
               >
                 Login
               </Link>
+              {/* Fixed Mobile Book Now Link */}
               <Link
                 href="/booking"
                 className="block bg-blue-600 text-white px-6 py-2 rounded-lg font-medium text-center hover:bg-blue-700 transition-colors"
