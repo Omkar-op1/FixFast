@@ -59,17 +59,17 @@ const ServicesPage = () => {
     {
       title: '90-Day Warranty',
       description: 'All repairs come with a 90-day warranty for your peace of mind.',
-      icon: '/img/warranty.svg'
+      icon: '/img/warranty.jpeg'
     },
     {
       title: 'Fast Response',
       description: 'Average response time of just 10 minutes for urgent repairs.',
-      icon: '/img/fast.svg'
+      icon: '/img/fast.jpeg'
     },
     {
       title: 'Transparent Pricing',
       description: 'No hidden fees. Get upfront pricing before any work begins.',
-      icon: '/img/pricing.svg'
+      icon: '/img/trans.jpeg'
     }
   ];
 
@@ -82,7 +82,7 @@ const ServicesPage = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Fast, reliable repairs for all your electronics and appliances with a 90-day warranty.
           </p>
-          <Link href="/book-now" className="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-blue-50 transition duration-300 inline-block">
+          <Link href="/auth/login/" className="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-blue-50 transition duration-300 inline-block">
             Book a Technician Now
           </Link>
         </div>
@@ -122,26 +122,27 @@ const ServicesPage = () => {
 
       {/* Why Choose Us */}
       <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Choose FixFast?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyChooseUs.map((item, index) => (
-              <div key={index} className="text-center p-6">
-                <div className="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
-                  <Image 
-                    src={item.icon} 
-                    alt={item.title} 
-                    width={30} 
-                    height={30} 
-                  />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
-              </div>
-            ))}
+  <div className="container mx-auto px-4">
+    <h2 className="text-3xl font-bold text-center mb-12">Why Choose FixFast?</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {whyChooseUs.map((item, index) => (
+        <div key={index} className="text-center p-6">
+          <div className="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 overflow-hidden">
+            <Image 
+              src={item.icon} 
+              alt={item.title}
+              width={64}  // Container size (16 = 64px)
+              height={64}
+              className="object-cover p-2"  // Add padding if needed
+            />
           </div>
+          <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+          <p className="text-gray-600">{item.description}</p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* How It Works */}
       <section className="py-16 container mx-auto px-4">
