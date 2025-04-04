@@ -13,7 +13,7 @@ const ServicesPage = () => {
         'Charging port repair',
         'Software issues'
       ],
-      icon: '/icons/smartphone.svg'
+      icon: '/img/phone.jpeg'
     },
     {
       title: 'Laptop & Computer Repairs',
@@ -24,7 +24,7 @@ const ServicesPage = () => {
         'Hardware upgrades',
         'Software installation'
       ],
-      icon: '/icons/laptop.svg'
+      icon: '/img/laptop.jpeg'
     },
     {
       title: 'Home Appliance Repairs',
@@ -35,7 +35,7 @@ const ServicesPage = () => {
         'Microwave repair',
         'Television repair'
       ],
-      icon: '/icons/appliance.svg'
+      icon: '/img/appliance.jpeg'
     },
     {
       title: 'Other Services',
@@ -46,7 +46,7 @@ const ServicesPage = () => {
         'Device optimization',
         'Preventive maintenance'
       ],
-      icon: '/icons/other.svg'
+      icon: '/img/other.jpeg'
     }
   ];
 
@@ -54,22 +54,22 @@ const ServicesPage = () => {
     {
       title: 'Certified Technicians',
       description: 'All our technicians are certified and background-checked professionals.',
-      icon: '/icons/certified.svg'
+      icon: '/img/certificate.jpeg'
     },
     {
       title: '90-Day Warranty',
       description: 'All repairs come with a 90-day warranty for your peace of mind.',
-      icon: '/icons/warranty.svg'
+      icon: '/img/warranty.svg'
     },
     {
       title: 'Fast Response',
       description: 'Average response time of just 10 minutes for urgent repairs.',
-      icon: '/icons/fast.svg'
+      icon: '/img/fast.svg'
     },
     {
       title: 'Transparent Pricing',
       description: 'No hidden fees. Get upfront pricing before any work begins.',
-      icon: '/icons/pricing.svg'
+      icon: '/img/pricing.svg'
     }
   ];
 
