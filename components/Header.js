@@ -19,10 +19,10 @@ export default function Header() {
       <Link href="/pricing" className="font-medium hover:text-blue-600" onClick={() => mobile && setMobileMenuOpen(false)}>
         Pricing
       </Link>
-      <Link href="/about" className="font-medium hover:text-blue-600" onClick={() => mobile && setMobileMenuOpen(false)}>
+      <Link href="/aboutUs" className="font-medium hover:text-blue-600" onClick={() => mobile && setMobileMenuOpen(false)}>
         About Us
       </Link>
-      <Link href="/contact" className="font-medium hover:text-blue-600" onClick={() => mobile && setMobileMenuOpen(false)}>
+      <Link href="/contactUs" className="font-medium hover:text-blue-600" onClick={() => mobile && setMobileMenuOpen(false)}>
         Contact
       </Link>
     </>
