@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration System</title>
+    <link rel="stylesheet" href="login.css">
+    </head>
+<body>
+    <div class="app-container">
+        <div class="forms-container" id="forms-container">
+            <!-- Login Form -->
+            <div class="login-container" id="login-container">
+                <h1>Login Page</h1>
+                <p class="subheading">Please enter your credentials to access your account</p>
+                
+                <div class="alert alert-success" id="login-success-alert"></div>
+                <div class="alert alert-error" id="login-error-alert"></div>
+                
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" placeholder="Enter your email" required>
+                        <div class="error-text" id="login-email-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <div class="password-field">
+                            <input type="password" id="login-password" placeholder="Enter your password" required>
+                            <span class="toggle-password" id="login-toggle-password">👁️</span>
+                        </div>
+                        <div class="error-text" id="login-password-error"></div>
+                    </div>
+                    
+                    <div class="form-links">
+                        <a class="form-link" id="forgot-password-link">Forgot Password?</a>
+                        <a class="form-link" id="register-link" href="createAccount.html">Create Account</a>
+                    </div>
+                    
+                    <button type="submit" class="btn" id="login-btn">
+                        <span class="spinner" id="login-spinner"></span>
+                        Login
+                    </button>
+                </form>
+                
+                <div class="separator">
+                    <span class="separator-text">OR</span>
+                </div>
+                
+                <div class="social-login">
+                    <button class="social-btn" id="google-login">
+                        <span>G</span>
+                        <span>Google</span>
+                    </button>
+                    <button class="social-btn" id="facebook-login">
+                        <span>f</span>
+                        <span>Facebook</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Registration Form -->
+            <div class="register-container" id="register-container" style="display: none;">
+                <h1>Create Account</h1>
+                <p class="subheading">Fill in your details to get started</p>
+                
+                <div class="alert alert-success" id="register-success-alert"></div>
+                <div class="alert alert-error" id="register-error-alert"></div>
+                
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-name">Full Name</label>
+                        <input type="text" id="register-name" placeholder="Enter your full name" required>
+                        <div class="error-text" id="register-name-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" placeholder="Enter your email" required>
+                        <div class="error-text" id="register-email-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <div class="password-field">
+                            <input type="password" id="register-password" placeholder="Create a password" required>
+                            <span class="toggle-password" id="register-toggle-password">👁️</span>
+                        </div>
+                        <div class="password-strength-meter">
+                            <div class="password-strength-meter-bar" id="strength-meter"></div>
+                        </div>
+                        <div class="strength-text" id="strength-text">Password strength: None</div>
+                        <div class="password-requirements">
+                            <div class="requirement" id="length-requirement">At least 8 characters</div>
+                            <div class="requirement" id="uppercase-requirement">At least one uppercase letter</div>
+                            <div class="requirement" id="lowercase-requirement">At least one lowercase letter</div>
+                            <div class="requirement" id="number-requirement">At least one number</div>
+                            <div class="requirement" id="special-requirement">At least one special character</div>
+                        </div>
+                        <div class="error-text" id="register-password-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-confirm-password">Confirm Password</label>
+                        <div class="password-field">
+                            <input type="password" id="register-confirm-password" placeholder="Confirm your password" required>
+                            <span class="toggle-password" id="confirm-toggle-password">👁️</span>
+                        </div>
+                        <div class="error-text" id="register-confirm-password-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-phone">Phone Number</label>
+                        <input type="tel" id="register-phone" placeholder="Enter your phone number" required>
+                        <div class="error-text" id="register-phone-error"></div>
+                    </div>
+                    
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="terms-checkbox" required>
+                        <label for="terms-checkbox">I agree to the Terms & Conditions and Privacy Policy</label>
+                        <div class="error-text" id="terms-error"></div>
+                    </div>
+                    
+                    <button type="submit" class="btn" id="register-btn">
+                        <span class="spinner" id="register-spinner"></span>
+                        Create Account
+                    </button>
+                    
+                    <div class="form-links" style="justify-content: center; margin-top: 20px;">
+                        <a class="form-link" id="login-link">Already have an account? Sign In</a>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Forgot Password Form -->
+            <div class="forgot-password-container" id="forgot-password-container" style="display: none;">
+                <h1>Reset Password</h1>
+                <p class="subheading">Enter your email address to receive a password reset link</p>
+                
+                <div class="alert alert-success" id="forgot-success-alert"></div>
+                <div class="alert alert-error" id="forgot-error-alert"></div>
+                
+                <form id="forgot-password-form">
+                    <div class="form-group">
+                        <label for="forgot-email">Email</label>
+                        <input type="email" id="forgot-email" placeholder="Enter your email" required>
+                        <div class="error-text" id="forgot-email-error"></div>
+                    </div>
+                    
+                    <button type="submit" class="btn" id="forgot-btn">
+                        <span class="spinner" id="forgot-spinner"></span>
+                        Send Reset Link
+                    </button>
+                    
+                    <div class="form-links" style="justify-content: center; margin-top: 20px;">
+                        <a class="form-link" id="back-to-login">Back to Login</a>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Dashboard (after login) -->
+            <div class="dashboard-container" id="dashboard-container" style="display: none;">
+                <h1>Dashboard</h1>
+                
+                <div class="user-info">
+                    <div class="greeting" id="user-greeting">Hello, User!</div>
+                    <div class="user-detail" id="user-email">Email: user@example.com</div>
+                    <div class="user-detail" id="user-phone">Phone: +1234567890</div>
+                    <div class="user-detail" id="last-login">Last login: Just now</div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" id="change-password-btn">Change Password</button>
+                    <button class="btn btn-danger" id="logout-btn">Logout</button>
+                </div>
+                
+                <div class="session-timer" id="session-timer">
+                    Session expires in: <span id="timer">30:00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script href="login.js"></script>
+</body>
+</html>

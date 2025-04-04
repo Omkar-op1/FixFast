@@ -1,3 +1,5 @@
+"use client"
+
 import { Search, Wrench, ShieldCheck, Clock, Star, ChevronRight, Check, Smartphone, Laptop, AirVent } from 'lucide-react';
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
@@ -197,9 +199,13 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <button className="mt-6 text-blue-600 font-medium flex items-center group">
+                
+                <a href='/Book'>
+                  <button className="mt-6 text-blue-600 font-medium flex items-center group">
                   Book now <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </button>
+                </a>
+                
               </div>
             ))}
           </div>
