@@ -33,14 +33,17 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:flex space-x-4">
+          {/* Fixed Login Link */}
           <Link
-            href="/login"
-            className="px-4 py-2 font-medium hover:text-blue-600"
+            href="/auth/login"
+            className="bg-blue-600 hover:bg-blue-800 text-white font-medium py-2 px-4 rounded-md"
           >
             Login
           </Link>
+          
+          {/* Fixed Book Now Link */}
           <Link
-            href="/book-now"
+            href="/booking"
             className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700"
           >
             Book Now
@@ -75,14 +78,16 @@ export default function Header() {
               Contact
             </Link>
             <div className="pt-4 border-t">
+              {/* Fixed Mobile Login Link */}
               <Link
-                href="/login"
+                href="/auth/login"
                 className="block mb-4 font-medium hover:text-blue-600"
               >
                 Login
               </Link>
+              {/* Fixed Mobile Book Now Link */}
               <Link
-                href="/book-now"
+                href="/booking"
                 className="block bg-blue-600 text-white px-6 py-2 rounded-lg font-medium text-center hover:bg-blue-700"
               >
                 Book Now
