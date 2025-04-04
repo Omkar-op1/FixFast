@@ -48,7 +48,7 @@ let resul;
     { code: 'QUICK10', discount: 10, description: '10% off for urgent repairs' },
   ];
 
-  const basePrice = 100;
+  const basePrice = 200;
   const [finalPrice, setFinalPrice] = useState(basePrice);
   const [bookingResult, setBookingResult] = useState(null); // Changed from bookingId to bookingResult
 
@@ -80,7 +80,8 @@ let resul;
       finalPrice,
       customerDetails: bookingDetails,
     };
-  
+    window.open("https://rzp.io/rzp/PnP9AiZ", "_blank", "noopener,noreferrer,width=800,height=600");
+
     try {
       const response = await fetch('/api/Book-repair', {
         method: 'POST',
@@ -414,7 +415,7 @@ let resul;
                         <span>4.9/5 rated technicians</span>
                       </div>
                     </div>
-
+                        
                     <button
                       onClick={handleBookingSubmit}
                       className="w-full mt-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium flex items-center justify-center"
@@ -445,7 +446,7 @@ let resul;
         </div>
       )}
       {bookingResult?.bookingId && (
-        <Link href={`/orders/${bookingResult.bookingId}`} className="block">
+        <Link href={`/order/${bookingResult.bookingId}`} className="block">
           <button className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium">
             Track Order
           </button>

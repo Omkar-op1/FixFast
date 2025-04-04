@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
+import Image from 'next/image';
 
 export default function Header() {
   const { data: session } = useSession();
@@ -33,8 +34,11 @@ export default function Header() {
   return (
     <header className="bg-white shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-blue-600">
-          FixFast
+        
+        {/* Logo and Brand Name */}
+        <Link href="/" className="flex items-center space-x-2">
+          <Image src="/logo.jpg" alt="FixFast Logo" width={40} height={40} />
+          <span className="text-2xl font-bold text-blue-600">FixFast</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -66,7 +70,7 @@ export default function Header() {
           )}
 
           <Link
-            href="/booking"
+            href="/Book"
             className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
           >
             Book Now
