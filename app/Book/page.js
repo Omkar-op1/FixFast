@@ -83,23 +83,51 @@ export default function BookingPage() {
     <main className="min-h-screen bg-gray-50">
       {/* Progress Bar */}
       <div className="bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            {[1, 2, 3, 4].map((stepNumber) => (
-              <div key={stepNumber} className="flex flex-col items-center">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center ${step >= stepNumber ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-600'}`}>
-                  {stepNumber}
-                </div>
-                <span className={`text-xs mt-1 ${step >= stepNumber ? 'text-blue-600 font-medium' : 'text-gray-500'}`}>
-                  {stepNumber === 1 && 'Device'}
-                  {stepNumber === 2 && 'Issue'}
-                  {stepNumber === 3 && 'Details'}
-                  {stepNumber === 4 && 'Confirm'}
-                </span>
-              </div>
-            ))}
-          </div>
+      <div className="max-w-3xl mx-auto px-4 py-8">
+  <div className="flex items-center justify-between relative">
+    {/* Background track line */}
+    <div className="absolute top-5 left-0 right-0 h-2 bg-gray-200 -z-10 rounded-full"
+         style={{ left: '10%', right: '10%' }}></div>
+    
+    {/* Animated arrow progress line */}
+    <div className="absolute top-5 h-2 bg-blue-600 -z-10 transition-all duration-500 ease-out rounded-full"
+         style={{ 
+           left: '10%',
+           width: step === 1 ? '0%' : 
+                  step === 2 ? '33%' :
+                  step === 3 ? '66%' : '100%',
+           clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%)'
+         }}>
+      <div className="absolute right-0 top-1/2 w-3 h-3 bg-blue-600 transform rotate-45 -translate-y-1/2"></div>
+    </div>
+
+    {[1, 2, 3, 4].map((stepNumber) => (
+      <div key={stepNumber} className="flex flex-col items-center relative z-10">
+        {/* Step circle */}
+        <div className={`
+          w-10 h-10 rounded-full flex items-center justify-center
+          border-4 ${step >= stepNumber ? 'border-blue-600' : 'border-gray-200'}
+          ${step === stepNumber ? 'scale-110 ring-4 ring-blue-200' : ''}
+          transition-all duration-300
+          ${step > stepNumber ? 'bg-blue-600 text-white' : 'bg-white text-gray-700'}
+          font-semibold
+          shadow-sm
+        `}>
+          {stepNumber}
         </div>
+        
+        {/* Step label */}
+        <span className={`
+          text-xs mt-2 font-medium text-center
+          ${step >= stepNumber ? 'text-blue-600' : 'text-gray-500'}
+          ${step === stepNumber ? 'font-bold' : ''}
+        `}>
+          {['Device', 'Issue', 'Details', 'Confirm'][stepNumber - 1]}
+        </span>
+      </div>
+    ))}
+  </div>
+</div>
       </div>
 
       <div className="container mx-auto px-4 py-12">
