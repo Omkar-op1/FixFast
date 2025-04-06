@@ -1,93 +1,143 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
+import bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('Seeding database with services...');
+  const users = [
+    {
+      firstname: "Ojas",
+      lastname: "Charjan",
+      email: "ojascharjan24@gmail.com",
+      password: await bcrypt.hash("defaultpassword", 10),
+      phone: "9529319989",
+      address: "Unknown",
+      role: "customer",
+      lat: 0.0,
+      lng: 0.0,
+    },
+    {
+      firstname: "Shrawani",
+      lastname: "Petle",
+      email: "Shravanipetle@gmail.com",
+      password: await bcrypt.hash("defaultpassword", 10),
+      phone: "8999529445",
+      address: "Unknown",
+      role: "customer",
+      lat: 0.0,
+      lng: 0.0,
+    },
+    {
+      firstname: "Khushboo",
+      lastname: "Bhagat",
+      email: "khushboobhagat54@gmail.com",
+      password: await bcrypt.hash("defaultpassword", 10),
+      phone: "7666426143",
+      address: "Unknown",
+      role: "customer",
+      lat: 0.0,
+      lng: 0.0,
+    },
+    {
+      firstname: "Chetan",
+      lastname: "Nandurkar",
+      email: "chetannandurkar71@gmail.com",
+      password: await bcrypt.hash("defaultpassword", 10),
+      phone: "9172188949",
+      address: "Unknown",
+      role: "customer",
+      lat: 0.0,
+      lng: 0.0,
+    },
+    {
+      firstname: "Sweta",
+      lastname: "Karluke",
+      email: "swetakarluke204@gmail.com",
+      password: await bcrypt.hash("defaultpassword", 10),
+      phone: "7499174035",
+      address: "Unknown",
+      role: "customer",
+      lat: 0.0,
+      lng: 0.0,
+    },
+    {
+      firstname: "Aachal",
+      lastname: "Bhudke",
+      email: "bhudkeaachal56@gmail.com",
+      password: await bcrypt.hash("defaultpassword", 10),
+      phone: "8482956489",
+      address: "Unknown",
+      role: "customer",
+      lat: 0.0,
+      lng: 0.0,
+    },
+    {
+      firstname: "Gitu",
+      lastname: "Thakre",
+      email: "gituthakre7@gmail.com",
+      password: await bcrypt.hash("defaultpassword", 10),
+      phone: "9028985380",
+      address: "Unknown",
+      role: "customer",
+      lat: 0.0,
+      lng: 0.0,
+    },
+    {
+      firstname: "Sampada",
+      lastname: "Khond",
+      email: "sampadakhond@gmail.com",
+      password: await bcrypt.hash("defaultpassword", 10),
+      phone: "8767996278",
+      address: "Unknown",
+      role: "customer",
+      lat: 0.0,
+      lng: 0.0,
+    },
+    {
+      firstname: "Ritesh",
+      lastname: "Gharde",
+      email: "gharderitesh2@gmail.com",
+      password: await bcrypt.hash("defaultpassword", 10),
+      phone: "9209269585",
+      address: "Unknown",
+      role: "customer",
+      lat: 0.0,
+      lng: 0.0,
+    },
+    {
+      firstname: "Gunjan",
+      lastname: "Patil",
+      email: "co.2023.gspatil@bitwardha.ac.in",
+      password: await bcrypt.hash("defaultpassword", 10),
+      phone: "9370125527",
+      address: "Unknown",
+      role: "customer",
+      lat: 0.0,
+      lng: 0.0,
+    },
+    {
+      firstname: "Vinay",
+      lastname: "Patil",
+      email: "co.2023.vspatil@bitwardha.ac.in",
+      password: await bcrypt.hash("defaultpassword", 10),
+      phone: "8698665653",
+      address: "Unknown",
+      role: "customer",
+      lat: 0.0,
+      lng: 0.0,
+    },
+  ];
 
-  await prisma.service.createMany({
-    data: [
-      {
-        name: 'Screen Replacement',
-        description: 'Replace cracked or broken screens for mobile devices.',
-        price: 2499.99,
-        category: 'Mobile',
-        estimatedTime: '2 hours',
-      },
-      {
-        name: 'Battery Replacement',
-        description: 'Replace old or damaged batteries for smartphones and laptops.',
-        price: 1799.99,
-        category: 'Mobile',
-        estimatedTime: '1 hour',
-      },
-      {
-        name: 'Laptop Screen Repair',
-        description: 'Fix or replace broken laptop screens.',
-        price: 4999.99,
-        category: 'Laptop',
-        estimatedTime: '3 hours',
-      },
-      {
-        name: 'Keyboard Replacement',
-        description: 'Replace damaged laptop keyboards with new ones.',
-        price: 1999.99,
-        category: 'Laptop',
-        estimatedTime: '2 hours',
-      },
-      {
-        name: 'Software Installation',
-        description: 'Install operating systems and required software on laptops & PCs.',
-        price: 999.99,
-        category: 'Laptop',
-        estimatedTime: '1.5 hours',
-      },
-      {
-        name: 'TV Screen Repair',
-        description: 'Repair or replace broken TV screens.',
-        price: 6999.99,
-        category: 'TV',
-        estimatedTime: '4 hours',
-      },
-      {
-        name: 'Speaker Repair',
-        description: 'Fix faulty or damaged speakers in mobile devices and TVs.',
-        price: 1299.99,
-        category: 'Mobile',
-        estimatedTime: '1.5 hours',
-      },
-      {
-        name: 'Cooling Fan Replacement',
-        description: 'Replace defective cooling fans in laptops and gaming PCs.',
-        price: 2499.99,
-        category: 'Laptop',
-        estimatedTime: '2 hours',
-      },
-      {
-        name: 'Charging Port Repair',
-        description: 'Fix broken charging ports in mobile devices and laptops.',
-        price: 1599.99,
-        category: 'Mobile',
-        estimatedTime: '1 hour',
-      },
-      {
-        name: 'Water Damage Repair',
-        description: 'Repair mobile devices affected by water damage.',
-        price: 3499.99,
-        category: 'Mobile',
-        estimatedTime: '3 hours',
-      },
-    ],
+  await prisma.user.createMany({
+    data: users,
+    skipDuplicates: true,
   });
 
-  console.log('Seeding completed!');
+  console.log("Users seeded successfully!");
 }
 
 main()
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
+  .catch((e) => console.error(e))
   .finally(async () => {
     await prisma.$disconnect();
   });

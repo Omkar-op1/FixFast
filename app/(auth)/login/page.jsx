@@ -26,7 +26,7 @@ export default function LoginPage() {
       if (result?.error) {
         setError(result.error === 'CredentialsSignin' 
           ? 'Invalid email or password' 
-          : result.error);
+          : 'Error');
       } else {
         if(email==='tech@gmail.com')
         {

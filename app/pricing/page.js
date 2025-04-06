@@ -37,7 +37,7 @@ const PricingPage = () => {
               href="/book-now" 
               className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 px-4 rounded font-bold transition-colors"
             >
-              Book Now
+              Buy
             </Link>
           </div>
 
@@ -51,11 +51,7 @@ const PricingPage = () => {
             <ul className="space-y-3 mb-6">
               <li className="flex items-center">
                 <span className="text-green-500 mr-2">✓</span>
-                <span>2 repair services</span>
-              </li>
-              <li className="flex items-center">
-                <span className="text-green-500 mr-2">✓</span>
-                <span> parts included</span>
+                <span>2 free onsite-Inspection / Month</span>
               </li>
               <li className="flex items-center">
                 <span className="text-green-500 mr-2">✓</span>
@@ -70,7 +66,7 @@ const PricingPage = () => {
               href="/book-now" 
               className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 px-4 rounded font-bold transition-colors"
             >
-              Book Now
+              Buy
             </Link>
           </div>
 
@@ -81,11 +77,11 @@ const PricingPage = () => {
             <ul className="space-y-3 mb-6">
               <li className="flex items-center">
                 <span className="text-green-500 mr-2">✓</span>
-                <span>3 repair services</span>
+                <span>3 onsite Inspection / Month</span>
               </li>
               <li className="flex items-center">
                 <span className="text-green-500 mr-2">✓</span>
-                <span>parts included</span>
+                <span>free Replacement parts included upto 1000 Rs</span>
               </li>
               <li className="flex items-center">
                 <span className="text-green-500 mr-2">✓</span>
@@ -104,8 +100,7 @@ const PricingPage = () => {
               href="/book-now" 
               className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 px-4 rounded font-bold transition-colors"
             >
-              Book Now
-            </Link>
+              Buy           </Link>
           </div>
         </div>
       </div>

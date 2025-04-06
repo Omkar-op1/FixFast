@@ -83,7 +83,7 @@ export default function TechnicianDashboard() {
                     slideAccepted ? 'bg-green-500 w-full' : 'bg-blue-600 w-1/4'
                   }`}
                   style={{
-                    width: slideAccepted ? '100%' : '25%',
+                    width: slideAccepted ? '100%' : '100%',
                     left: slideAccepted ? '0' : '0'
                   }}
                 >
