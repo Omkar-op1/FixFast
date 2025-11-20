@@ -30,15 +30,38 @@ export async function POST(req) {
       token: process.env.BLOB_READ_WRITE_TOKEN,
     });
 
-    const plant = plantNames[Math.floor(Math.random() * plantNames.length)];
+    const random = Math.floor(Math.random() * plantNames.length);
+    const plant = plantNames[random];
 
+    // 🔥 Plant.id style response
     return NextResponse.json({
-      success: true,
-      plantName: plant,
+      id: Date.now().toString(),
+      result: {
+        is_plant: {
+          binary: true,
+          probability: 0.95,
+        },
+        classification: {
+          suggestions: [
+            {
+              id: random + 1,
+              name: plant,
+              probability: 0.75,
+              details: {
+                common_names: [plant],
+                url: `https://en.wikipedia.org/wiki/${plant.replace(/ /g, "_")}`,
+              },
+            },
+          ],
+        },
+      },
       fileUrl: blob.url,
     });
   } catch (error) {
     console.error("UPLOAD ERROR:", error);
-    return NextResponse.json({ error: error.message || "Upload failed" });
+    return NextResponse.json(
+      { error: error.message || "Upload failed" },
+      { status: 500 }
+    );
   }
 }
