@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { put } from "@vercel/blob";
 
+export const runtime = "nodejs";
+
 const plantNames = [
   "Aloe Vera",
   "Money Plant",
@@ -21,12 +23,11 @@ export async function POST(req) {
       return NextResponse.json({ error: "No image provided" }, { status: 400 });
     }
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
+    const buffer = Buffer.from(await file.arrayBuffer());
 
-    // Upload to Vercel Blob
     const blob = await put(`plants/${Date.now()}-${file.name}`, buffer, {
       access: "public",
+      token: process.env.BLOB_READ_WRITE_TOKEN,
     });
 
     const plant = plantNames[Math.floor(Math.random() * plantNames.length)];
@@ -37,7 +38,7 @@ export async function POST(req) {
       fileUrl: blob.url,
     });
   } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error: "Upload failed" }, { status: 500 });
+    console.error("UPLOAD ERROR:", error);
+    return NextResponse.json({ error: error.message || "Upload failed" });
   }
 }
